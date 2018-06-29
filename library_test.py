@@ -36,7 +36,7 @@ class TestCase(unittest.TestCase):
 
     # Fifth unit test; prove that invalid date should not be found.
     def test_invalid_date(self):
-        self.assert_extract("I was born on 2015-07-35.", library.integers)
+        self.assert_extract("I was born on 2015-07-35.", library.dates_iso8601)
 
 
 if __name__ == '__main__':
