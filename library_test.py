@@ -37,6 +37,10 @@ class TestCase(unittest.TestCase):
     # Fifth unit test; prove that invalid date should not be found.
     def test_invalid_date(self):
         self.assert_extract("I was born on 2015-07-35.", library.dates_iso8601)
+    
+    # Sixth unit test; prove that date of type 20 Jan 2018 are handled.
+    def test_date_with_month_names(self):
+        self.assert_extract("I was born on 20 Jan 2017.", library.dates_iso8601,"20 Jan 2017")
 
 
 if __name__ == '__main__':
