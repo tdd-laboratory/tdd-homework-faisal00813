@@ -29,6 +29,10 @@ class TestCase(unittest.TestCase):
     # Third unit test; prove that if we look for integers where there are none, we get no results.
     def test_no_integers(self):
         self.assert_extract("no integers", library.integers)
+    
+    # Second unit test; prove that if we look for integers, we find four of them.
+    def test_date(self):
+        self.assert_extract("I was born on 2015-07-25.", library.dates_iso8601, '2015-07-25')
 
 
 if __name__ == '__main__':
