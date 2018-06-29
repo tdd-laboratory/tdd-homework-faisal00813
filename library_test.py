@@ -41,6 +41,37 @@ class TestCase(unittest.TestCase):
     # Sixth unit test; prove that date of type 20 Jan 2018 are handled.
     def test_date_with_month_names(self):
         self.assert_extract("I was born on 20 Mar 2017.", library.dates_with_month_names,"20 Mar 2017")
+    
+    def test_date_with_month_names_with_hyphen(self):
+        self.assert_extract("I was born on 20-Mar-2017.", library.dates_with_month_names,"20-Mar-2017")
+
+    def test_date_with_month_names_with_fslash(self):
+        self.assert_extract("I was born on 20/Mar/2017.", library.dates_with_month_names,"20/Mar/2017")
+
+    def test_date_with_month_names_with_colon(self):
+        self.assert_extract("I was born on 20:Mar:2017.", library.dates_with_month_names,"20:Mar:2017")
+
+    def test_date_with_full_month_names(self):
+        self.assert_extract("I was born on 20:March:2017.", library.dates_with_month_names,"20:March:2017")
+
+    def test_date_with_full_month_names_space(self):
+        self.assert_extract("I was born on 20 March 2017.", library.dates_with_month_names,"20 March 2017")
+
+    def test_date_RFC(self):
+        self.assert_extract("I was born on Mon, 17 Apr 2006 21:22:48 GMT.", library.dates_iso8601, 'Mon, 17 Apr 2006 21:22:48 GMT')
+
+    def test_date_UTC(self):
+        self.assert_extract("I was born on 2006-04-17T21:22:48.2698750Z", library.dates_iso8601, '2006-04-17T21:22:48.2698750Z')
+
+    def test_date_UTC_UNDEFINED(self):
+        self.assert_extract("I was born on 2000-03-20T13:02:03.0000000", library.dates_iso8601, '2000-03-20T13:02:03.0000000')
+
+    def test_date_SORTABLE(self):
+        self.assert_extract("I was born on 2006-04-17T14:22:48", library.dates_iso8601, '2006-04-17T14:22:48')
+
+    def test_date_UNIV(self):
+        self.assert_extract("I was born on 2006-04-17 21:22:48Z", library.dates_iso8601, '2006-04-17 21:22:48Z')
+
 
 
 if __name__ == '__main__':
