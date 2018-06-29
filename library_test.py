@@ -30,9 +30,13 @@ class TestCase(unittest.TestCase):
     def test_no_integers(self):
         self.assert_extract("no integers", library.integers)
     
-    # Second unit test; prove that if we look for integers, we find four of them.
+    # Fourth unit test; prove that if we look for a date, we find one in the given text.
     def test_date(self):
         self.assert_extract("I was born on 2015-07-25.", library.dates_iso8601, '2015-07-25')
+
+    # Fifth unit test; prove that invalid date should not be found.
+    def test_invalid_date(self):
+        self.assert_extract("I was born on 2015-07-35.", library.integers)
 
 
 if __name__ == '__main__':
