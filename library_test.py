@@ -40,7 +40,7 @@ class TestCase(unittest.TestCase):
     
     # Sixth unit test; prove that date of type 20 Jan 2018 are handled.
     def test_date_with_month_names(self):
-        self.assert_extract("I was born on 20 Jan 2017.", library.dates_with_month_names,"20 Jan 2017")
+        self.assert_extract("I was born on 20 Mar 2017.", library.dates_with_month_names,"20 Mar 2017")
 
 
 if __name__ == '__main__':
